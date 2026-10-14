@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MenuSnap — Snap a menu, get a recommendation</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">📸 MenuSnap</div>
+    <nav>
+      <a href="#snap">Snap</a>
+      <a href="#recommend">Recommend me</a>
+      <a href="#menu">Dish catalog</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Staring at a menu you can't read?</h1>
+    <p class="lede">Snap a photo of the printed menu, tell me what you're in the mood for, and MenuSnap points you at dishes from the catalog that fit — with pictures and plain descriptions, so you know what you're ordering before it lands on the table.</p>
+  </section>
+
+  <section id="snap" class="card">
+    <h2>1. Snap the menu</h2>
+    <p>Take a photo of the restaurant's printed menu (or upload one you already have). On a phone this opens your camera.</p>
+    <label class="upload-box" id="uploadBox">
+      <input type="file" id="menuPhoto" accept="image/*" capture="environment" hidden>
+      <span class="upload-icon">📷</span>
+      <span class="upload-text">Tap to take or upload a menu photo</span>
+    </label>
+    <figure class="photo-preview" id="photoPreview" hidden>
+      <img id="previewImg" alt="Your photo of the restaurant menu">
+      <figcaption>Your menu photo. In this demo version the photo stays on your device — dish matching below works from the built-in catalog plus your picks, not from reading the photo. See the README for what's real and what's next.</figcaption>
+    </figure>
+  </section>
+
+  <section id="recommend" class="card">
+    <h2>2. What are you in the mood for?</h2>
+    <form id="prefsForm">
+      <div class="field-grid">
+        <label class="field">
+          <span>Spice level</span>
+          <select id="prefSpice">
+            <option value="any">No preference</option>
+            <option value="none">No heat at all</option>
+            <option value="mild">A little kick</option>
+            <option value="hot">Bring the heat</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Diet</span>
+          <select id="prefDiet">
+            <option value="any">Everything</option>
+            <option value="vegan">Vegan</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="meat">Meat lover</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Budget</span>
+          <select id="prefBudget">
+            <option value="any">Any price</option>
+            <option value="12">Under $12</option>
+            <option value="18">Under $18</option>
+            <option value="25">Under $25</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Vibe</span>
+          <select id="prefVibe">
+            <option value="any">Surprise me</option>
+            <option value="popular">Most popular</option>
+            <option value="filling">Something filling</option>
+            <option value="light">Something light</option>
+            <option value="share">Good for sharing</option>
+          </select>
+        </label>
+      </div>
+      <button type="submit" class="btn-primary">Recommend dishes</button>
+    </form>
+    <div id="results" class="results" aria-live="polite"></div>
+  </section>
+
+  <section id="menu" class="card">
+    <h2>3. Dish catalog</h2>
+    <p>Every dish MenuSnap can recommend right now, with a picture-style card, what's in it, and what people usually say about it. Prices are sample prices for the demo catalog.</p>
+    <div class="dish-grid" id="dishGrid"></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>MenuSnap — a first working version of my menu-recommendation idea. Built with plain HTML, CSS, and JavaScript.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
